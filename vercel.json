@@ -2,21 +2,17 @@
     "version": 2,
     "builds": [
         {
-            "src": "index.html",
-            "use": "@vercel/static-build"
+            "src": "package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "dist"
+            }
         }
     ],
     "routes": [
         {
-            "handle": "filesystem"
-        },
-        {
-            "src": "/api/(.*)",
-            "dest": "http://localhost:3000/api/$1"
-        },
-        {
             "src": "/(.*)",
-            "dest": "/"
+            "dest": "/index.html"
         }
     ]
 }
